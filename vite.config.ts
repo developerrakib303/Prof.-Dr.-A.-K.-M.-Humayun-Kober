@@ -13,10 +13,12 @@ export default defineConfig({
       includeProps: true,
     })
   ],
+  // Shudhu ei line-ti add kora hoyeche
+  base: '/Prof.-Dr.-A.-K.-M.-Humayun-Kober/', 
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
 })
-
