@@ -1,0 +1,113 @@
+/* Apply Inter font family */
+body {
+    font-family: 'Inter', sans-serif;
+    /* NEW: Added for smooth menu push effect */
+    transition: transform 0.3s ease-in-out;
+}
+.font-lora {
+    font-family: 'Lora', serif;
+}
+/* Slider transition */
+.slide {
+    transition: opacity 1s ease-in-out;
+    will-change: opacity;
+}
+/* Submenu positioning */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+.group:hover .submenu {
+    display: block;
+}
+
+/* --- NEW: Enhanced Desktop Dropdown Menu Styles --- */
+/* Keep dropdown open when clicked */
+.group.is-active > div.absolute {
+    display: block !important;
+}
+
+/* Visual indicator for active dropdown button */
+.group.is-active > button {
+    color: #1d3882; /* brand-primary color */
+}
+
+/* Keep hover functionality working alongside click */
+.group:hover > div.absolute,
+.group.is-active > div.absolute {
+    display: block;
+}
+
+/* --- UPDATED Professional Patterned Background --- */
+.patterned-bg {
+    background-color: #f9fafb; /* bg-gray-50 */
+    /* Subtle modern dot pattern using CSS gradient */
+    background-image: radial-gradient(circle at 1px 1px, rgb(29 56 130 / 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+/* --- Scroll Behavior --- */
+/* Hide Top Bar on Scroll */
+#top-bar {
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out, border 0.3s ease-out;
+    max-height: 200px; /* arbitrary large number */
+    opacity: 1;
+}
+.scrolled #top-bar {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    overflow: hidden;
+    border-bottom: none;
+}
+
+/* Center Nav Links Initially on Desktop */
+@media (min-width: 1024px) { /* lg breakpoint */
+    #nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-out;
+    }
+    #nav-logo {
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
+
+    /* Move Nav Links to Right on Scroll */
+    .scrolled #nav-links {
+        position: relative;
+        left: auto;
+        transform: none;
+    }
+    /* Show Nav Logo on Scroll */
+    .scrolled #nav-logo {
+        opacity: 1;
+    }
+}
+
+/* --- NEW: Off-Canvas Mobile Menu Styles --- */
+/* Backdrop */
+#mobile-menu-backdrop {
+    transition: opacity 0.3s ease-in-out;
+}
+/* Panel */
+#mobile-menu-panel {
+    transition: transform 0.3s ease-in-out;
+}
+/* Open state */
+.mobile-menu-open #mobile-menu-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+.mobile-menu-open #mobile-menu-panel {
+    transform: translateX(0);
+}
+/* Hide scrollbar when menu is open */
+.mobile-menu-open body {
+    overflow: hidden;
+}
